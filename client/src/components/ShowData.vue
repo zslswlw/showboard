@@ -1,25 +1,10 @@
 <template>
     <div class="showdata">
-        <el-row class="show-title">生产动态</el-row>
-        <el-row class="show-row">
-            <el-col :span="9" class="show-col">日产气量：</el-col>
-            <el-col :span="9" class="show-col">{{proStatus.day_p}}</el-col>
-            <el-col :span="6" class="show-col">万立方米</el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="9" class="show-col">年累产气量：</el-col>
-            <el-col :span="9" class="show-col">{{proStatus.year_p}}</el-col>
-            <el-col :span="6" class="show-col">万立方米</el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="9" class="show-col">日销售气量：</el-col>
-            <el-col :span="9" class="show-col">{{proStatus.day_s}}</el-col>
-            <el-col :span="6" class="show-col">万立方米</el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="9" class="show-col">年累销售气量：</el-col>
-            <el-col :span="9" class="show-col">{{proStatus.year_s}}</el-col>
-            <el-col :span="6" class="show-col">万立方米</el-col>
+        <el-row class="show-title">{{showData.title}}</el-row>
+        <el-row class="show-row" v-for="data in showData.sdata" :key="data.index">
+            <el-col :span="9" class="show-col">{{data.c1}}</el-col>
+            <el-col :span="9" class="show-col">{{data.c2}}</el-col>
+            <el-col :span="6" class="show-col">{{data.c3}}</el-col>
         </el-row>
     </div>
 </template>
@@ -28,7 +13,7 @@
 export default{
     name:"showdata",
     props:{
-        proStatus: Object,
+        showData: Object,
     }  
 }
 
@@ -41,9 +26,17 @@ export default{
     font-size:18pt;
     font-family: "微软雅黑";
     text-align: left;
+
 }
 .show-title{
-    background: 
+    background: rgb(192,0,0);
+    text-align: center;
+    line-height: 50px;
+    height:50px;
+    color:white;
+    letter-spacing:8px;
+
+
 }
 .show-row{
     
@@ -53,7 +46,7 @@ export default{
     line-height:50px;
     border-style: solid;
     border-width: 1px;
-    border-color:rgb(255, 148, 8);
-    text-indent:5px;
+    border-color:rgb(184, 186, 191);
+    text-indent:20px;
 }
 </style>
